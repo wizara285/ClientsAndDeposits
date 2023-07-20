@@ -9,6 +9,47 @@ namespace Interfaces
     public class Client : IEnumerable<Deposit>
     {
         private List<Deposit> Deposits { get; }
+        public int AmountSpecialDeposits
+        {
+            get
+            {
+                int countDeposits = 0;
+                foreach (var deposit in Deposits)
+                {
+                    if (deposit != null && deposit is SpecialDeposit)
+                        countDeposits++;
+                }
+                return countDeposits;
+            }
+        }
+        public int AmountBaseDeposits
+        {
+            get
+            {
+                int countDeposits = 0;
+                foreach (var deposit in Deposits)
+                {
+                    if (deposit != null && deposit is BaseDeposit)
+                        countDeposits++;
+                }
+                return countDeposits;
+            }
+        }
+        public int AmountLongDeposits
+        {
+            get
+            {
+                int countDeposits = 0;
+                foreach (var deposit in Deposits)
+                {
+                    if (deposit != null && deposit is LongDeposit)
+                        countDeposits++;
+                }
+                return countDeposits;
+            }
+        }
+
+
 
         public Client() { }
 
@@ -72,11 +113,10 @@ namespace Interfaces
             return GetEnumerator();
         }
 
-        //public void SortDeposits()
-        //{
-        //    Array.Sort(Deposits);
-        //    Array.Reverse(Deposits);
-        //}
+        public void SortDeposits()
+        {
+            Deposits.Sort();
+        }
 
         public int CountPossibleToProlongDeposit()
         {
@@ -92,5 +132,7 @@ namespace Interfaces
 
             return DepositsThatCanBeProlonged;
         }
+
+        
     }
 }
