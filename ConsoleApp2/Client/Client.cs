@@ -48,6 +48,13 @@ namespace Interfaces
                 return countDeposits;
             }
         }
+        public int AmountAllDeposits
+        {
+            get
+            {
+                return Deposits.Count;
+            }
+        }
 
 
 

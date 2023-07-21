@@ -32,9 +32,12 @@ namespace Interfaces
                     
             }
             Console.WriteLine();
+
             Console.WriteLine($"Amount Special Deposits: {client.AmountSpecialDeposits}");
             Console.WriteLine($"Amount Base Deposits: {client.AmountBaseDeposits}");
             Console.WriteLine($"Amount Long Deposits: {client.AmountLongDeposits}");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine($"Amount All Deposits: {client.AmountAllDeposits}");
 
             //Console.WriteLine("Max Income is {0:#.##}", client.MaxIncome());
             //Console.WriteLine("Income of first deposit is {0:#.##}", client.GetIncomeByNumber(1));
